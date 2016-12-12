@@ -1,0 +1,608 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin');
+
+
+/*
+    Colours:
+    #DB3232
+    #e4e4e4
+    #4B88A2
+*/
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Libre Franklin', sans-serif;
+    background-color: #d4d4d4;
+    position: relative;
+}
+
+body {
+    padding-top: 150px;
+    padding-bottom: 200px;
+    min-height: 150vh;
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+#sitename {
+    font-size: 24px;
+    position: absolute;
+    margin: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Abril Fatface', cursive;
+    color: rgb(68, 68, 68);
+    color: white;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    overflow: hidden;
+    box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.75);
+    position: fixed;
+    top: 0;
+    overflow: visible;
+    z-index: 100;
+}
+
+#topbar {
+    position: relative;
+    height: 60px;
+    width: 100%;
+    background-color: #861919;
+}
+
+
+button {
+    background-color: #DB3232;
+    border: none;
+    padding: 10px;
+    color: white;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: bold;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: 0;
+}
+
+#sports-bar {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: #DB3232;
+}
+
+#sports-list {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 600px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+}
+
+.sport-entry {
+    display: block;
+    float: left;
+    width: 100px;
+    height: 100%;
+    line-height: 50px;
+    text-align: center;
+
+    -webkit-transition: background 0.25s ease;
+    -moz-transition: background 0.25s ease;
+    -ms-transition: background 0.25s ease;
+    -o-transition: background 0.25s ease;
+    transition: background 0.25s ease;
+}
+
+.sport-entry:hover, .current-sport {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.sport-entry i {
+    position: relative;
+    top: 7px;
+}
+
+.sport-entry a {
+}
+
+.current-sport {
+    color: black !important;
+}
+
+#search-bar {
+    position: absolute;
+    right: 35px;;
+    color: black;
+    background-color: white;
+    border: #DB3232 1px solid;
+    width: 200px;
+    margin: 0;
+    height: 35px;
+    padding: 7px;
+}
+
+#submit-search {
+    position: absolute;
+    right: 0;
+    width: 35px;
+    padding: 0;
+    font-size: 10px;
+    height: 35px;
+}
+
+
+/* Profile Window*/
+
+#profile-window {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 300px;
+    padding: 20px;
+    /*box-sizing: border-box;*/
+    background-color: white;
+    border-left: 2px solid rgb(193, 193, 193);
+    border-bottom: 2px solid rgb(193, 193, 193);
+    z-index: 5;
+    display: none;
+}
+
+#profile-window i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+    border: 1px solid gray;
+    color: gray;
+    border-radius: 50%;
+    padding: 20px;
+}
+
+
+#profile-button {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    z-index: 10;
+    transform: translate(0, -50%);
+    padding: 0;
+    background-color: white;
+    color: #4B88A2;
+    border: 1px solid #4B88A2;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+#logout-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    overflow: hidden;
+}
+
+#my-profile-button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: #DB3232;
+    border: none;
+    padding: 10px;
+    color: white;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+
+/* Per page headers and titles */
+.page-header {
+    width: 70%;
+    height: 40px;
+    max-width: 600px;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.page-header h2 {
+    float:left;
+    margin-bottom: 20px;
+}
+
+
+/* Posts */
+
+#post-well, #user-post-well {
+    width: 80%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#user-post-title {
+    max-width: 600px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.post-card {
+    min-height: 100px;
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.post-summary {
+    border-bottom: solid 1px gray;
+    position: relative;
+    padding: 10px 0 10px 0;
+    min-height: 70px;
+}
+
+.post-summary h2 {
+    max-width: 70%;
+    margin: 0;
+}
+
+.post-summary .poster-name {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+.poster-name {
+    margin-bottom: 10px;
+    color: #4B88A2;
+}
+
+.poster-name:visited {
+    color: #4B88A2;
+}
+
+.post-summary .post-date {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    color: gray;
+}
+
+.read-more-button {
+    background-color: #4B88A2;
+    padding: 5px;
+    font-size: 14px;
+    color: white !important;
+    cursor: pointer;
+}
+
+.vote-buttons {
+    position: absolute;
+    font-size: 20px;
+    right: 20px;
+    bottom: 12px;
+
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
+}
+
+
+
+.vote-buttons i {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.score {
+    position: absolute;
+    font-size: 20px;
+    right: 100px;
+    bottom: -5px;
+}
+
+.id {
+    display: none;
+}
+
+/* New post menu styles */
+#new-post-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 15;
+    padding: 15px;
+    font-size: 16px;
+}
+
+#new-post-button, #logout-button, #my-profile-button, #submit-post {
+    -webkit-transition: background 0.25s ease;
+    -moz-transition: background 0.25s ease;
+    -ms-transition: background 0.25s ease;
+    -o-transition: background 0.25s ease;
+    transition: background 0.25s ease;
+}
+
+#new-post-button:hover, #logout-button:hover, #my-profile-button:hover, #submit-post:hover {
+    background-color: #961f1f;
+}
+
+#post-editor {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    padding: 20px;
+    bottom: 0;
+    right: 0;
+    z-index: 16;
+    background-color: white;
+    display: none;
+    z-index: 100;
+}
+
+#post-editor select {
+    background: none;
+    border: #DB3232 solid 2px;
+    color: #DB3232;
+    text-align: center;
+    outline: 0;
+}
+
+#post-editor h3 {
+    float: left;
+}
+
+#post-editor i {
+    float: right;
+    cursor: pointer;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    outline: none;
+    border: 1px gray solid;
+    -webkit-transition: border-color 0.25s; /* For Safari 3.1 to 6.0 */
+    transition: border-color 0.25s;
+}
+
+input:focus, textarea:focus {
+    border-color: #00abf4;
+}
+
+input {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    resize: none;
+    height: 350px;
+    font-family: inherit;
+}
+
+button[name="submit-post"] {
+    margin-top: 10px;
+    float: right;
+}
+
+select {
+    height: 35px;
+}
+
+#tags-input {
+    width: 50%;
+    margin-left: 10px;
+}
+
+#post-success {
+    color: rgb(52, 204, 39);
+    text-align: center;
+    margin-left: 20px;
+    display: none;
+}
+
+/* For post page */
+
+#post-page {
+    width: 80%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#post-page textarea {
+    height: 200px;
+}
+
+#post-page button[name=postcomment] {
+    position: relative;
+    margin-bottom: 20px;
+    display: inline;
+}
+
+#comment-form p {
+    display: inline;
+    margin-left: 50px;
+    color: #ff0000;
+    display: none;
+}
+
+.main-post-card {
+    position: relative;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    background-color: white;
+    padding: 20px;
+}
+
+.comments {
+    width: 100%;
+    min-height: 100px;
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.comment {
+    width: 100%;
+    margin-bottom: 20px;
+    border-top: 1px gray solid;
+}
+
+.comment-text {
+}
+
+.comment-poster {
+}
+
+/* User Profile styles */
+#user-profile {
+    width: 80%;
+    max-width: 600px;
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+
+}
+
+.update-header {
+    margin-top: 20px;
+    border-top: 2px solid gray;
+    padding-top: 15px;
+}
+
+#user-profile p {
+    margin-bottom: 10px;
+}
+
+#user-profile input {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+
+/* Footer styles */
+footer {
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 100%;
+    height: 150px;
+    background-color: #861919;
+    position: absolute;
+    bottom: 0;
+}
+
+/* 404 Message */
+
+#notfound-message {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    min-width: 600px;
+}
+
+#notfound-message * {
+    margin-bottom: 10px;
+}
+
+/* Events side bar */
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#events-bar {
+    height: 100px;
+    position: absolute;
+    z-index: 16;
+}
+
+#events-list {
+    background-color: white;
+    border: 1px solid #4B88A2;
+    height: 40vh;
+    min-height: 400px;
+    width: 150px;
+    position: fixed;
+    left: 10px;
+    padding: 10px;
+    font-size: 14px;
+    overflow: scroll;
+    overflow-x: hidden;
+    display: none;
+}
+
+#events-list li {
+    margin-bottom: 20px;
+}
+
+
+#events-list p {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+#events-list a {
+    color: #4B88A2;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+#show-events {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 15;
+    padding: 15px;
+    font-size: 16px;
+}

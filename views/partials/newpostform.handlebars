@@ -1,0 +1,22 @@
+<button type="button" name="make-post" id="new-post-button">Make new post</button>
+<form id="post-editor" action="">
+    <h3>New post</h3>
+    <h3 id="post-success">Post successfully made</h3>
+    <i class="material-icons" id='close-post-editor'>clear</i>
+    <input type="text" name="title" value="" placeholder="post title" required>
+    <textarea name="text"></textarea required>
+    <button type="button" id="submit-post">Submit post</button>
+    <select name="sport">
+        {{#each allSports}}
+            {{#if (isCurSport this)}}
+                <option value={{this}} selected>{{this}}</option>
+            {{else}}
+                <option value={{this}}>{{this}}</option>
+            {{/if}}
+
+        {{/each}}
+    </select>
+
+    <input id="tags-input" type="text" name="tags" value="" placeholder="tags: please seperate with a space">
+
+</form>

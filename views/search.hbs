@@ -1,0 +1,12 @@
+{{> topbar}}
+
+<h2 class="page-header">Search results for {{searchQuery}}
+        <input id="search-bar" type="text" name="search-bar" value="" placeholder="Search by tags...">
+        <button id="submit-search" type="button" name="submit-search"><i class="material-icons">search</i></button>
+</h2>
+
+{{> newpostform}}
+
+<section id="search-post-well">
+    {{> postcard}}
+</section>

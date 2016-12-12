@@ -1,0 +1,35 @@
+{
+  "name": "group9project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CSC309-Fall-2016/group9.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CSC309-Fall-2016/group9/issues"
+  },
+  "homepage": "https://github.com/CSC309-Fall-2016/group9#readme",
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "body-parser": "^1.15.2",
+    "client-sessions": "^0.7.0",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "jsdom": "^9.8.3",
+    "mocha": "^3.2.0",
+    "mongoose": "^4.6.7",
+    "request": "^2.79.0",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "should": "^11.1.1",
+    "supertest": "^2.0.1"
+  }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="../js/admin.js"></script>
+    <link rel="stylesheet" href="../css/admin.css">
+    <title>Admin</title>
+</head>
+
+<body>
+    <h1>Admin Page</h1>
+
+    <fieldset>
+    <h3>User List</h3>
+    <form id="getusers" method="get">
+        <p>Click the button to get the list of registered users</p>
+        <button id="userlist" type="submit">User List</button>
+            <table id="allusers" style="visibility:hidden">
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </table>
+    </form>
+    </fieldset>
+
+    <fieldset>
+        <h3>Change password of a user</h3>
+        <form id="changepassword" method="post">
+            <span class="passwordLabel">Type the username of the user:</span>
+            <input type="text" id="username"><br><br>
+            <span class="passwordLabel">Enter the new password:</span>
+            <input type="text" id="newpassword"><br><br>
+            <span class="passwordLabel">Enter the new password again:</span>
+            <input type="text" id="newpassword2"><br><br>
+            <button id="changepasswordbutton" type="submit">Submit</button>
+        </form>
+    </fieldset>
+
+    <fieldset>
+        <h3>Remove a User</h3>
+        <form id="removeuser" method="post">
+            <span class="removelabel">Remove User by username:</span>
+            <input type="text" id="delusername"/>
+            <input type="submit" value="Submit">
+        </form>
+    </fieldset>
+
+    <fieldset>
+        <h3>Post list</h3>
+        <form id="getposts" method="get">
+            <p>Click the button to get the list of posts</p>
+            <button id="postlist" type="submit">Submit</button>
+            <table id="allposts" style="visibility:hidden">
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </table>
+        </form>
+    </fieldset>
+
+    <fieldset>
+        <h3>Remove a Post</h3>
+        <form id="removepost" method="post">
+            <span class="removelabel">Remove Post by id:</span>
+            <input type="text" id="delpost"/>
+            <input type="submit" value="Submit">
+        </form>
+    </fieldset>
+
+</body>
+</html>

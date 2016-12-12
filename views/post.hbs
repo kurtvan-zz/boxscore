@@ -1,0 +1,40 @@
+{{> topbar}}
+<section id="post-page">
+    <article class="main-post-card">
+        <div class="post-summary">
+            <h2 class="post-title">{{title}}</h2>
+            <p class="post-date">{{date}}</p>
+            <a class="poster-name" href="/user/{{poster}}">by {{poster}}</a>
+        </div>
+        <div>
+            <p class="post-text">{{postText}}</p>
+        </div>
+        <p style="display:none" id="id">{{postID}}</p>
+        <div class="vote-buttons">
+            <i class="material-icons upvote">arrow_upward</i>
+            <i class="material-icons downvote">arrow_downward</i>
+        </div>
+    </article>
+
+    <h3>Leave a comment: </h3>
+
+    <form id="comment-form" action="" method="post">
+        <textarea id="comment-input" name="commentinput" required></textarea>
+        <button id="post-comment" type="submit" name="postcomment">Submit</button>
+        <p class="comment-error">Error: bad input</p>
+    </form>
+
+    <article class="comments">
+        <h3>Comments</h3>
+        {{#each comments}}
+            <div class="comment">
+                <p class="comment-poster"><strong>{{this.poster}}</strong></p>
+                <p class="comment-text">{{this.text}}</p>
+            </div>
+        {{else}}
+            <p>
+                No comments yet .. Be the first to leave one!
+            </p>
+        {{/each}}
+    </article>
+</section>

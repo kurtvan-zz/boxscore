@@ -1,0 +1,25 @@
+{{> topbar}}
+
+
+
+
+<h2 class="page-header">Your profile</h2>
+
+<div id="user-profile">
+    <h1 id="profile-username">{{username}}</h1>
+    <p><strong>Total score:</strong> {{score}}</p>
+
+    <form class="update-info" action="" method="post">
+        <h3 class="update-header">Update your information:</h3>
+        <p>password</p>
+        <input type="password" name="new-password" value="" placeholder="New Password" required>
+        <button id="update-info-submit" type="submit" name="update-info">Save Changes</button>
+        <p id="update-success" style="display:none">Changes saved!</p>
+    </form>
+</div>
+
+<h2 class="page-header">Your Posts</h2>
+
+<section id="user-post-well">
+    {{> postcard}}
+</section>

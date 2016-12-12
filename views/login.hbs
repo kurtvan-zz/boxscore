@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Group9 CSC309 Project</title>
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/login.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="js/ui.js"></script>
+        <script src="js/login.js"></script>
+    </head>
+
+    <body>
+        <header>
+            <div id="topbar">
+                <a href="/"><h1 id="sitename">BOXSCORE</h1></a>
+            </div>
+            <div id="sports-bar"></div>
+        </header>
+
+        {{#if signup}}
+            <form action="/signup" method="post" id="signup" class="current">
+        {{else}}
+            <form action="/signup" method="post" id="signup">
+        {{/if}}
+            <div id="signup-topbar">
+                <h2 class="form-title">Sign Up</h2>
+            </div>
+            <button type="submit" class="form-submit">Sign Up</button>
+            <button class="switch-log-mode" id="switch-login">Log In</button>
+            <div id="signup-fields" class="form-fields">
+                    <p>username</p>
+                    <input type="text" name="username" id="username-input" required>
+                    <p>password</p>
+                    <input type="password" name="password" id="password-input" required>
+                    <p>confirm password</p>
+                    <input type="password" name="passwordconf" id="password-confirm" required>
+                    <p class="auth-error">{{signupError}}</p>
+            </div>
+        </form>
+
+        {{#if login}}
+            <form action="/login" method="post" id="login" class="current">
+        {{else}}
+            <form action="/login" method="post" id="login">
+        {{/if}}
+            <button type="submit" class="form-submit">Log In</button>
+            <button class="switch-log-mode" id="switch-signup">Sign Up</button>
+            <div id="login-topbar">
+                <h2 class="form-title">Log In</h2>
+            </div>
+            <div id="login-fields" class="form-fields">
+                    <p>username</p>
+                    <input type="text" name="username" id="username-input">
+                    <p>password</p>
+                    <input type="password" name="password" id="password-input">
+                    <p class="auth-error">{{loginError}}</p>
+            </div>
+        </form>
+
+
+    </body>
+</html>

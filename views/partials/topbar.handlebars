@@ -1,0 +1,18 @@
+<header>
+    <div id="topbar">
+        <a href="/"><h1 id="sitename">BOXSCORE</h1></a>
+        <button id="profile-button"><i class="material-icons">person</i></button>
+        {{> profilewindow}}
+    </div>
+    <div id="sports-bar">
+        <ul id="sports-list">
+            {{#each allSports}}
+                {{#if (isCurSport this)}}
+                    <a class="sport-entry current-sport">{{this}}</a>
+                {{else}}
+                    <a class="sport-entry">{{this}}</a>
+                {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+</header>

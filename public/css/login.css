@@ -1,0 +1,151 @@
+#sports-bar {
+    height: 5px;
+}
+
+html{
+    padding: 0;
+}
+
+body {
+    padding: 0;
+    min-height: auto;
+    position: relative;
+    min-height: 100vh;
+}
+
+form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    padding: 0;
+    background-color: white;
+    box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.25);
+}
+
+input {
+    display: block;
+    margin: 10px 0 10px 0;
+    border: none;
+    border-bottom: 1px solid rgb(186, 186, 186);
+    padding: 10px;
+    padding-left: 0;
+    font-size: 16px;
+}
+
+input:focus {
+    outline: 0;
+    border-bottom: 1px solid rgb(94, 94, 94);
+
+}
+
+.auth-error {
+    color: rgb(201, 41, 41);
+    padding: 10px;
+    /*background-color: rgb(217, 143, 143);*/
+}
+
+#signup-topbar {
+    margin: 0;
+    background-color: #4B88A2;
+    width: 50%;
+    height: 80px;
+    position: relative;
+    float: left;
+}
+
+.form-fields {
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height: 300px;
+    padding: 20px;
+    /*box-sizing: border-box;*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form-fields input {
+    width: 100%;
+}
+
+#login-fields {
+    padding-top: 50px;
+}
+
+
+form p {
+    margin: 0;
+    font-size: 16px;
+    color: gray;
+}
+
+.form-title {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.form-submit {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 60px;
+    width: 400px;
+    font-size: 20px;
+    font-weight: lighter;
+
+    -webkit-transition: background 0.25s ease;
+    -moz-transition: background 0.25s ease;
+    -ms-transition: background 0.25s ease;
+    -o-transition: background 0.25s ease;
+    transition: background 0.25s ease;
+
+}
+
+.form-submit:hover {
+    background-color: #961f1f;
+
+}
+
+#login-topbar {
+    float: right;
+    background-color: #4B88A2;
+    width: 50%;
+    height: 80px;
+    position: relative;
+}
+
+.switch-log-mode {
+    height: 80px;
+    width: 50%;
+    background-color: white;
+    color: #4B88A2;
+    box-shadow: inset -33px -33px 13px -31px rgba(0,0,0,0.45);
+    font-size: 1.5em;
+
+    -webkit-transition: background 0.25s ease;
+    -moz-transition: background 0.25s ease;
+    -ms-transition: background 0.25s ease;
+    -o-transition: background 0.25s ease;
+    transition: background 0.25s ease;
+}
+
+.switch-log-mode:hover {
+    background-color: #bccdff;
+}
+
+#switch-login {
+    box-shadow: inset 33px -33px 13px -31px rgba(0,0,0,0.45);
+}
+
+#switch-signup {
+}
