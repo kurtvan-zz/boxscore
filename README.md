@@ -1,4 +1,4 @@
-# Group 9 Project
+# Boxscore
 
 ## Initialization
 From the project root directory, run `npm install` then create a directory to store the db in:
