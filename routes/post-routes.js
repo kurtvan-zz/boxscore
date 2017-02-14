@@ -1,62 +1,49 @@
-"use strict"
+"use strict";
 
 var Post = require('../models/post');
 var User = require('../models/user');
 var session = require("client-sessions");
 var nav = require('./nav-routes');
 
-
 /* Get all posts */
 exports.getPosts = function(req, res) {
 	Post.find({}).sort('-date').exec(function(err, posts) {
-		if(err) {
-			throw err;
-		}
-		res.send(posts);
+		if(err) throw err;
+		else res.send(posts);
 	});
 };
 
-/* Get all posts by id */
+/* Get one post by id */
 exports.getPostsById = function(req, res) {
-	var postID = req.params.id;
+	let postID = req.params.id;
 	Post.findOne({_id: postID}, function(err, post) {
-		if (err)
-			throw err;
-
-		if (post) {
-			res.send(post);
-		}
+		if (err) throw err;
+		else res.send(post);
 	});
 };
 
 /* Get all posts for sport */
 exports.getPostsBySport = function(req, res) {
 	let response = [];
-	var sport = req.params.sport.toLowerCase();
+	let sport = req.params.sport.toLowerCase();
 
 	Post.find({sport: sport}).sort('-date').exec(function(err, posts) {
-		if (err) {
-			throw err;
-		}
-		res.send(posts);
+		if (err) throw err;
+		else res.send(posts);
 	});
 };
-
 
 /* Get all posts by user */
 exports.getPostsByUser = function(req, res) {
 	let response = [];
-	var user = req.params.user;
+	let user = req.params.user;
 	Post.find({ poster: user}).sort('-date').exec(function(err, posts) {
-		if (err) {
-			throw err;
-		}
-		res.send(posts);
+		if (err) throw err;
+		else res.send(posts);
 	});
 };
 
-
-/* Upvote post with id */
+/* Upvote post with given id */
 exports.upVotePost = function(req, res) {
 	var postID = req.params.id;
 	var increment = 1; // the amount the vote will count for
@@ -64,38 +51,27 @@ exports.upVotePost = function(req, res) {
 	// find the upvoting user and see if they've upvoted this before
 	User.findOne({username: req.session.user}, function(err, user) {
 
-		if (err)
-			throw err;
-
-
+		if (err) throw err;
 		else {
 			// if the user has upvoted this before, they are going to undo it
-			if (user.upvoted.indexOf(postID) != -1) {
+			if (user.upvoted.indexOf(postID) != -1)
 				increment = -1;
-			}
 
 			// if they downvoted it, they are now changing their mind
-			if (user.downvoted.indexOf(postID) != -1) {
+			if (user.downvoted.indexOf(postID) != -1)
 				increment = 2;
-			}
 
 			Post.findOneAndUpdate({_id: postID}, { $inc: { score: increment }}, {'new' : true}, function(err, post) {
-				if (err)
-					throw err;
-
+				if (err) throw err;
 				if (post) {
-					// increment the poster's total score as well
+				// increment the poster's total score as well
 				User.findOneAndUpdate({username: post.poster}, {$inc: {score: increment}}, function(err, poster) {
 						var sendSuccess = function(err) {
-							if (err)
-								throw err;
-							else  {
-								res.send({newscore : post.score});
-							}
+							if (err) throw err;
+							else res.send({newscore : post.score});
 						}
-						if (err)
-							throw err;
-						else
+						if (err) throw err;
+						else {
 							if (increment == -1) {
 								User.findOneAndUpdate(
 									{username: req.session.user},
@@ -125,6 +101,7 @@ exports.upVotePost = function(req, res) {
 									sendSuccess
 								);
 							}
+						}
 					});
 				}
 				else {
@@ -135,7 +112,7 @@ exports.upVotePost = function(req, res) {
 	});
 };
 
-/* Downvote post with id */
+/* Downvote post with given id */
 exports.downVotePost = function(req, res) {
 	var postID = req.params.id;
 	var increment = -1; // the amount the vote will count for
@@ -144,21 +121,17 @@ exports.downVotePost = function(req, res) {
 	User.findOne({username: req.session.user}, function(err, user) {
 
 		// if the user has upvoted this before, they are going to undo it
-		if (user.downvoted.indexOf(postID) != -1) {
+		if (user.downvoted.indexOf(postID) != -1)
 			increment = 1;
-		}
 
 		// if they downvoted it, they are now changing their mind
-		if (user.upvoted.indexOf(postID) != -1) {
+		if (user.upvoted.indexOf(postID) != -1)
 			increment = -2;
-		}
 
 		Post.findOneAndUpdate({_id: postID}, { $inc: { score: increment }}, {'new' : true}, function(err, post) {
-			if (err)
-				throw err;
+			if (err) throw err;
 
 			if (post) {
-
 				var sendSuccess = function(err, user) {
 					if (err) throw err;
 					else  {
@@ -170,7 +143,7 @@ exports.downVotePost = function(req, res) {
 				User.findOneAndUpdate({username: post.poster}, {$inc: {score: increment}}, function(err, poster) {
 					if (err)
 						throw err;
-					else
+					else {
 						if (increment == 1) {
 							User.findOneAndUpdate(
 								{username: req.session.user},
@@ -200,6 +173,7 @@ exports.downVotePost = function(req, res) {
 								sendSuccess
 							);
 						}
+					}
 				});
 			}
 			else {

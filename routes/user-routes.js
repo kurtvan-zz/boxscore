@@ -79,7 +79,7 @@ exports.addUser = function(req, res) {
 				new_user.save(function(error, data) {
 					if(error){
 					res.json(error);
-					} 
+					}
 					else
 					res.json(data);
 					});
@@ -87,13 +87,8 @@ exports.addUser = function(req, res) {
 
 			res.status(200);
 			});
-
-
 		}
-
 	});
-
-
 };
 
 exports.deleteUserByUsername = function(req, res) {
