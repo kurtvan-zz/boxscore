@@ -7,7 +7,6 @@ var allSports = require('./nav-routes').allSports;
 
 const saltRounds = 10;
 
-
 /* Return full records for all users in the database
  */
 exports.getUsers = function(req, res) {
@@ -50,8 +49,9 @@ exports.findUser = function(req, res) {
 	});
 };
 
-// Because this function represents its own route, it should only be usable
-// by admins (perform a session check for admin)
+/* Because this function represents its own route, it should only be usable
+ *  by admins (perform a session check for admin)
+ */
 exports.addUser = function(req, res) {
 
 	var new_user_data = req.body;
@@ -91,6 +91,8 @@ exports.addUser = function(req, res) {
 	});
 };
 
+/* Delete a user from the database, given their username
+ */
 exports.deleteUserByUsername = function(req, res) {
 
 
@@ -134,6 +136,8 @@ exports.deleteUserById = function(req, res) {
 };
 */
 
+/* Given a body of new user data, update the user with new information
+ */
 exports.updateUser = function(req, res) {
 
 	var new_user_data = req.body;
@@ -141,36 +145,29 @@ exports.updateUser = function(req, res) {
 
 	User.findOne({username: new_user_data.username}, function(err, user) {
 		if (err) throw err;
-
 		if(!user)
-		{
 			res.status(404).send("No user with matching username found in database.");
-		}
-		else
-		{
-
-
+		else {
+			// create a has and salt for the new password
 			bcrypt.genSalt(saltRounds, function(err, salt) {
 				new_user_data.salt = salt;
 				bcrypt.hash(new_user_data.password, salt, function(err, hash) {
 				new_user_data.password = hash;
 				console.log("Made hash: " + new_user_data.password);
-
 				});
 			});
 
-
+			// stuff this new data into the user's database entry
 			User.findOneAndUpdate({username:new_user_data.username}, new_user_data, function(err, doc){
 				if (err) throw err;
-
 				return res.send("Updated user: " + new_user_data.username);
 			});
-
 		}
-
 	});
 };
 
+/* Update the current user's password
+ */
 exports.updatePassword = function(req, res) {
 	var newPassword = req.body.password;
 
